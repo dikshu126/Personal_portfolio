@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!--google font link-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,500&display=swap"
+        rel="stylesheet">
+
+    <!--boxicon link-->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: rgb(80, 70, 92);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #demo {
+            color: #181330;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 50px;
+            background-color: rgb(100, 90, 133);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 23px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul li a:hover {
+            color: rgb(62, 32, 86);
+            font-size: 1.03rem;
+        }
+
+        main hr {
+            border: 0;
+            background: black;
+            height: 1.5px;
+            margin: 10px 84px;
+        }
+
+        .left {
+            font-size: 1.5rem;
+        }
+
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            margin: 100px 0;
+        }
+
+        .firstSection>div {
+            width: 30%;
+            align-items: center;
+        }
+
+        .leftSection {
+            font-size: 2.5rem;
+        }
+
+        .leftSection .btn {
+            padding: 12px;
+            background: #542e7a69;
+            color: white;
+            border: 2px solid white;
+            border-radius: 12px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(5px);
+            background: transparent;
+            color: var(--main-color);
+        }
+
+        .rightSection img {
+            width: 70%;
+            border-radius: 50%;
+        }
+
+        .purple {
+            color: #fefdff;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .textgrey {
+            color: rgb(175, 92, 193);
+        }
+
+        #element {
+            color: rgb(21, 6, 71);
+        }
+
+        /*--------------about section----------------*/
+
+
+        #about {
+            padding: 10px 0;
+            color: white;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .about-col-1 {
+            flex-basis: 45%;
+
+        }
+
+        .about-col-1 img {
+            width: 93%;
+            border-radius: 10px;
+            padding: 8%;
+        }
+
+        .about-col-2 {
+            flex-basis: 50%;
+            padding-bottom: 10%;
+
+        }
+
+        .sub-title {
+            font-size: 40px;
+            font-weight: 600;
+            color: white;
+
+        }
+
+        .tab-titles {
+            display: flex;
+            margin: 20px 0 40px;
+        }
+
+        .tab-links {
+            margin-right: 50px;
+            font-size: 18px;
+            font-weight: 500;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .tab-links::after {
+            content: '';
+            width: 0;
+            height: 3px;
+            background: rgb(222, 68, 107);
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            transition: 0.5s;
+        }
+
+        .tab-links.active-link::after {
+            width: 50%;
+
+        }
+
+        .tab-contents ul li {
+            list-style: none;
+            margin: 10px 0;
+        }
+
+        .tab-contents ul li span {
+            color: rgb(213, 249, 95);
+            font-size: 14px;
+
+        }
+
+        .tab-contents {
+            display: none;
+        }
+
+        .tab-contents.active-tab {
+            display: block;
+        }
+
+        /*--------------project section----------------*/
+
+        #Portfolio {
+            padding: 20px 0;
+            text-align: center;
+
+        }
+
+        .work-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 40px;
+            margin: 50px;
+        }
+
+        .work {
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work img {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .work:hover img {
+            transform: scale(1.1);
+        }
+
+        .layer {
+            width: 100%;
+            height: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), #ff004f);
+            border-radius: 10px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            font-size: 14px;
+            transition: height 0.5s;
+        }
+
+        .layer h3 {
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .layer a {
+            margin-top: 20px;
+            color: #ff004f;
+            text-decoration: none;
+            font-size: 18px;
+            line-height: 30px;
+            background: #f4efef;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+        }
+
+        .layer p {
+            padding: 10px;
+        }
+
+        .work:hover .layer {
+            height: 100%;
+        }
+
+        .btn {
+            display: block;
+            margin: 50px auto;
+            width: fit-content;
+            border: 2px solid #f4f3f3;
+            padding: 14px 50px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: rgb(255, 250, 250);
+            transition: background 0.5s;
+            background: rgb(78, 61, 61);
+        }
+
+        .btn:hover {
+            background: #df376c;
+            color: black;
+        }
+
+        .contact-left {
+            flex-basis: 25%;
+        }
+
+        .contact-left p {
+            margin-top: 9px;
+        }
+
+        .contact-left p i {
+            color: #270b49;
+            margin-right: 15px;
+            font-size: 25px;
+        }
+
+        .contact-right {
+            flex-basis: 60%;
+        }
+
+        .contact-right form {
+            width: 100%;
+        }
+
+        form input,
+        form textarea {
+            width: 50%;
+            border: 0;
+            outline: none;
+            background-color: #e5d3d9;
+            padding: 15px;
+            margin: 15px 0;
+            color: #141212;
+            font-size: 18px;
+            border-radius: 6px;
+        }
+
+        #msg {
+            color: #a07d88;
+            margin-top: -20px;
+            display: block;
+        }
+
+        .Share {
+            padding: 12px;
+            bottom: 3rem;
+            left: 15%;
+            display: flex;
+            align-items: center;
+        }
+
+        .Share p {
+            font-size: 15px;
+            color: rgb(137, 117, 161);
+            margin-right: 10px;
+        }
+
+        .social i {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 35px;
+            width: 35px;
+            background: linear-gradient();
+            box-shadow: 0px 50px 70px #cdbfbf70;
+            border: 1px solid;
+            border-radius: 30%;
+            color: white;
+
+        }
+
+        .social i:hover {
+            transform: translateY(-8px);
+        }
+
+        footer {
+            background-color: rgb(111, 84, 110);
+            height: 233px;
+        }
+
+        .footer {
+            display: flex;
+            padding: 23px 122px;
+            justify-content: space-evenly;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer>div {
+            width: 223px;
+        }
+
+        .footer-rights i {
+            color: #dd1111;
+        }
+
+        footer .footer-rights {
+            text-align: center;
+            color: rgb(146, 167, 193);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Dikshu's Portfolio</div>
+            <div class="right">
+                <ul>
+                    <li><a href="#header">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#Portfolio">Work</a></li>
+                    <li><a href="#contact">Contact me</a></li>
+                </ul>
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+        <section class="firstSection">
+            <div class="leftSection" id="demo">
+                Hello, <br>I'm <span class="purple">Diksha Adsule</span><br>
+                Software Engineer
+                <span id="element"></span>
+                <div class="buttons">
+                    <a href="https://drive.google.com/file/d/12KuTeaXsAslMJ4nGavlLW1S1tHIdF89a/view?usp=drive_link"
+                        download class="btn ">Download Resume</a>
+                </div>
+            </div>
+            <div class="rightSection">
+                <img src="https://cdn2.iconfinder.com/data/icons/business-people-20/50/5-512.png" alt="">
+            </div>
+        </section>
+        <!-------------------About Section---------------------->
+        <hr>
+        <div id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="about-col-1">
+                        <img src="https://cdn4.iconfinder.com/data/icons/professions-1-5/66/31-512.png" alt="">
+                    </div>
+                    <div class="about-col-2">
+                        <h1 class="sub-title">About me</h1>
+                        <p>Hello! I'm Diksha, As a recent graduate in Computer Science from Shivaji University,kolhapur.
+                            I'm on a journey to turn my love for code into innovative solutions and meaningful
+                            contributions to the tech industry. </p>
+                        <p>As a budding CS professional, I'm excited about the prospects of collaborating with
+                            like-minded individuals, solving complex problems, and building cutting-edge solutions. I'm
+                            on the lookout for opportunities to intern or work with organizations that share my passion
+                            and vision.</p>
+
+                        <div class="tab-titles">
+                            <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                            <p class="tab-links" onclick="opentab('education')">Education</p>
+                        </div>
+
+                        <div class="tab-contents active-tab" id="skills">
+                            <ul>
+                                <li><span>Core Java</span><br>developing versatile applications.</li>
+                                <li><span>HTML</span><br>create structured and interactive web content.</li>
+                                <li><span>CSS</span><br>style and design web content</li>
+                                <li><span>Python</span><br>scripting, data analysis, and application development</li>
+                                <li><span>My SQL</span><br>database design, query optimization, and data management</li>
+                            </ul>
+                        </div>
+                        <div class="tab-contents" id="education">
+                            <ul>
+                                <li><span>2019-2023</span><br>B-Tech from Shivaji University,kolhapur</li>
+                                <li><span>2017-2019</span><br>12th from SGM College karad</li>
+                                <li><span>2016-2017</span><br>10th from JVMKG karad</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-------------------Project---------------------->
+        <hr>
+        <div id="Portfolio">
+            <div class="container">
+                <h1 class="sub-title">Project Work</h1>
+                <div class="work-list">
+                    <div class="work">
+                        <img src="currency.jpg" alt="">
+                        <div class="layer">
+                            <h3>Currency Converter App</h3>
+                            <p> This app provides a user-friendly interface with real-time exchange rates, conversion
+                                history, favorite currencies, offline mode, and customizable settings. It's a practical
+                                and educational tool for travelers and anyone dealing with multiple currencies.</p>
+                            <a href="https://github.com/dikshu126/Currency-Convertor-"><i
+                                    class='bx bx-link-external'></i></a>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="landing2.png" alt="">
+                        <div class="layer">
+                            <h3>Landing Page</h3>
+                            <p>Introducing our most recent project: a state-of-the-art landing page that fuses potent
+                                functionality with a stylish appearance. With our skillfully designed web solution,
+                                engage your audience, highlight your brand, and increase conversions like never before."
+                            </p>
+                            <a href="https://github.com/dikshu126/landing_page"><i class='bx bx-link-external'></i></a>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="calculator.png" alt="">
+                        <div class="layer">
+                            <h3>Calculator App</h3>
+                            <p>a web-based calculator that enables users to perform basic and advanced mathematical
+                                operations with ease.It's a versatile tool for quick and accurate calculations
+                                accessible from any web browser.</p>
+                            <a href="https://github.com/dikshu126/calculator"><i class='bx bx-link-external'></i></a>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://github.com/dikshu126?tab=repositories" class="btn">See More</a>
+            </div>
+        </div>
+
+        <!----------------contact------------>
+        <hr>
+
+        <div id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="contact-left">
+                        <h1 class="sub-title">Contact Me</h1>
+                        <p><i class='bx bx-mail-send'></i> dikshaadsule2001@gmail.com</p>
+                        <p><i class='bx bxs-phone'></i> 7666017078</p>
+                    </div>
+                    <div class="contact-right">
+                        <form name="submit-to-google-sheet">
+                            <input type="text" name="Name" placeholder="Your Name" required>
+                            <input type="email" name="Email" placeholder="Your Email" required>
+                            <textarea name="Message" row="6" placeholder="Your Message"></textarea>
+                            <button type="submit" class="btn btn2">Submit </button>
+                        </form>
+                        <span id="msg"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        </section>
+        <div class="Share">
+            <p>Check out my : </p>
+
+            <div class="social">
+                <a href="https:/www.linkedin.com/in/diksha-adsule-017582227"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://github.com/dikshu126"><i class='bx bxl-github'></i></a>
+
+            </div>
+        </div>
+
+
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="footer-first">
+                <h3>Dikshu's Developer Portfolio</h3>
+            </div>
+            <div class="footer-Second">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                    <li>Services</li>
+                </ul>
+            </div>
+            <div class="footer-Third">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Contact</li>
+                    <li>Services</li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="footer-rights">
+            <p>Copyright @dikshus made with<i class='bx bxs-heart'></i>by My portfolio</p>
+        </div>
+    </footer>
+
+    <script>
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname) {
+            for (tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+    </script>
+
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbz04SFZ14y6x1y5y_E9sH1clkIetfaUMyGohTn-mu-xnJ1ANiQBvrdLv9R-vx_kNMYRzw/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    msg.innerHTML = "Message sent successfully"
+                    setTimeout(function () {
+                        msg.innerHTML = ""
+                    }, 5000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+
+</body>
